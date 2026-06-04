@@ -1,0 +1,415 @@
+.page {
+  background: var(--color-soft-white);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: calc(var(--section-padding-y) * 7.2);
+  overflow: hidden;
+  align-items: center;
+  color: var(--color-on-dark);
+  isolation: isolate;
+}
+
+.heroImage,
+.ctaImage {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-industrial-navy) 90%, transparent), color-mix(in srgb, var(--color-industrial-navy) 58%, transparent), color-mix(in srgb, var(--color-industrial-navy) 12%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-charcoal) 12%, transparent), color-mix(in srgb, var(--color-industrial-navy) 68%, transparent));
+}
+
+.heroVignette {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 72% 50%, transparent 0 28%, color-mix(in srgb, var(--color-charcoal) 58%, transparent) 100%);
+}
+
+.heroContent {
+  max-width: calc(var(--container-width) * 0.48);
+  padding-block: calc(var(--section-padding-y) * 1.25) calc(var(--section-padding-y) * 2.05);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--grid-gap) * 0.35);
+  align-items: center;
+  margin: 0 0 calc(var(--card-spacing) * 0.8);
+  color: var(--color-on-dark-muted);
+}
+
+.breadcrumbLink {
+  color: var(--color-on-dark);
+  transition: color var(--transition-base) var(--ease-industrial);
+}
+
+.breadcrumbLink:hover {
+  color: var(--color-industrial-orange);
+}
+
+.heroTitle {
+  color: var(--color-white);
+}
+
+.heroText {
+  margin-top: var(--card-spacing);
+  color: var(--color-on-dark-muted);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.gridTwo {
+  display: grid;
+  gap: calc(var(--grid-gap) * 2);
+  align-items: center;
+}
+
+.whoCopy {
+  max-width: calc(var(--container-width) * 0.42);
+}
+
+.whoImages {
+  position: relative;
+  min-height: calc(var(--section-padding-y) * 5.8);
+}
+
+.whoImages::before {
+  content: "";
+  position: absolute;
+  right: 3%;
+  bottom: 10%;
+  width: 9rem;
+  height: 9rem;
+  background-image: radial-gradient(var(--color-industrial-orange) 1.4px, transparent 1.4px);
+  background-size: 0.9rem 0.9rem;
+  opacity: 0.35;
+}
+
+.largeImage,
+.smallImage,
+.storyImage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-industrial);
+  box-shadow: var(--shadow-industrial);
+}
+
+.largeImage {
+  width: min(82%, 34rem);
+  height: calc(var(--section-padding-y) * 5.2);
+}
+
+.smallImage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(52%, 22rem);
+  height: calc(var(--section-padding-y) * 2.7);
+  border: calc(var(--button-padding-y) * 0.5) solid var(--color-card-background);
+}
+
+.stats {
+  position: relative;
+  overflow: hidden;
+  padding-block: calc(var(--section-padding-y) * 1.1);
+  background: var(--color-industrial-navy);
+  color: var(--color-on-dark);
+  isolation: isolate;
+}
+
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-industrial-navy) 94%, transparent), color-mix(in srgb, var(--color-industrial-navy) 78%, transparent)),
+    url("/images/plastic-machining-hero.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.34;
+  filter: saturate(0.8);
+}
+
+.stats::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(color-mix(in srgb, var(--color-industrial-orange) 58%, transparent) 1px, transparent 1px);
+  background-size: 1rem 1rem;
+  opacity: 0.14;
+}
+
+.statsGrid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.statItem {
+  padding: var(--card-spacing);
+  text-align: center;
+}
+
+.statNumber {
+  color: var(--color-white);
+  font-family: var(--font-figtree);
+  font-size: clamp(2.4rem, 4vw, 3.35rem);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+}
+
+.statNumber span {
+  color: var(--color-industrial-orange);
+}
+
+.statLabel {
+  margin-top: calc(var(--card-spacing) * 0.75);
+  color: var(--color-white);
+}
+
+.statText {
+  margin-top: calc(var(--card-spacing) * 0.45);
+  color: var(--color-on-dark-muted);
+}
+
+.values {
+  background: var(--color-soft-white);
+}
+
+.sectionHeader {
+  max-width: calc(var(--container-width) * 0.55);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.valuesGrid {
+  display: grid;
+  gap: var(--grid-gap);
+  margin-top: calc(var(--card-spacing) * 2);
+}
+
+.valueItem {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-precision-blue) 22%, var(--color-border-gray));
+  border-radius: var(--radius-industrial);
+  background: var(--color-card-background);
+  padding: var(--card-spacing);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition:
+    background var(--transition-base) var(--ease-industrial),
+    border-color var(--transition-base) var(--ease-industrial),
+    box-shadow var(--transition-base) var(--ease-industrial),
+    transform var(--transition-base) var(--ease-industrial);
+}
+
+.valueItem::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(var(--button-padding-y) * 0.28);
+  background: var(--color-industrial-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base) var(--ease-industrial);
+}
+
+.valueItem h3,
+.valueItem p,
+.valueIcon {
+  transition: color var(--transition-base) var(--ease-industrial);
+}
+
+.valueItem:hover {
+  border-color: var(--color-industrial-navy);
+  background: var(--color-industrial-navy);
+  box-shadow: var(--shadow-card);
+  transform: translateY(calc(var(--button-padding-y) * -0.18));
+}
+
+.valueItem:hover::after {
+  transform: scaleX(1);
+}
+
+.valueItem:hover h3,
+.valueItem:hover p {
+  color: var(--color-white);
+}
+
+.valueIcon {
+  display: grid;
+  width: calc(var(--button-padding-x) * 2.7);
+  height: calc(var(--button-padding-x) * 2.7);
+  place-items: center;
+  margin-inline: auto;
+  color: var(--color-industrial-orange);
+}
+
+.story {
+  background: var(--color-card-background);
+}
+
+.storyImage {
+  min-height: calc(var(--section-padding-y) * 6.1);
+}
+
+.missionCard {
+  position: absolute;
+  left: var(--card-spacing);
+  bottom: var(--card-spacing);
+  width: calc(100% - var(--card-spacing) * 2);
+  border-radius: var(--radius-industrial);
+  background: color-mix(in srgb, var(--color-industrial-navy) 92%, transparent);
+  padding: var(--card-spacing);
+  color: var(--color-on-dark);
+  backdrop-filter: blur(10px);
+}
+
+.missionTitle {
+  color: var(--color-white);
+}
+
+.missionText {
+  margin-top: calc(var(--card-spacing) * 0.55);
+  color: var(--color-on-dark-muted);
+}
+
+.storyCopy {
+  max-width: calc(var(--container-width) * 0.42);
+}
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: calc(var(--section-padding-y) * 0.85);
+  background: var(--color-industrial-navy);
+  color: var(--color-on-dark);
+  isolation: isolate;
+}
+
+.ctaImage img {
+  filter: saturate(0.72) contrast(0.9);
+}
+
+.ctaOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-industrial-navy) 96%, transparent), color-mix(in srgb, var(--color-industrial-navy) 74%, transparent), color-mix(in srgb, var(--color-industrial-navy) 90%, transparent)),
+    radial-gradient(circle at 72% 28%, color-mix(in srgb, var(--color-industrial-orange) 16%, transparent), transparent 24rem);
+}
+
+.ctaInner {
+  display: grid;
+  gap: var(--grid-gap);
+  align-items: center;
+}
+
+.ctaTitle {
+  color: var(--color-white);
+}
+
+.ctaText {
+  max-width: 48rem;
+  margin-top: calc(var(--card-spacing) * 0.65);
+  color: var(--color-on-dark-muted);
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--grid-gap) * 0.65);
+}
+
+.ctaActions a {
+  display: inline-flex;
+  width: fit-content;
+  min-width: max-content;
+  align-items: center;
+  gap: calc(var(--grid-gap) * 0.35);
+}
+
+@media (min-width: 768px) {
+  .statsGrid,
+  .valuesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .gridTwo {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  }
+
+  .statsGrid,
+  .valuesGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .statItem:not(:last-child) {
+    border-right: 1px solid color-mix(in srgb, var(--color-industrial-orange) 55%, transparent);
+  }
+
+  .ctaInner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .ctaActions {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: calc(var(--section-padding-y) * 6.2);
+  }
+
+  .whoImages {
+    min-height: calc(var(--section-padding-y) * 4.8);
+  }
+
+  .largeImage {
+    width: 100%;
+  }
+
+  .smallImage {
+    width: 62%;
+  }
+
+  .missionCard {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    margin: calc(var(--card-spacing) * -4) var(--card-spacing) var(--card-spacing);
+  }
+
+  .ctaInner,
+  .ctaActions {
+    text-align: center;
+    justify-content: center;
+  }
+}

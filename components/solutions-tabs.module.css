@@ -1,0 +1,150 @@
+.section {
+  padding-block: var(--section-padding-y);
+  background:
+    radial-gradient(circle at 82% 8%, color-mix(in srgb, var(--color-precision-blue) 10%, transparent), transparent 28rem),
+    var(--color-soft-white);
+}
+
+.shell {
+  display: grid;
+  align-items: stretch;
+  gap: calc(var(--grid-gap) * 1.5);
+  margin-top: calc(var(--card-spacing) * 1.8);
+}
+
+.tabList {
+  display: flex;
+  gap: calc(var(--grid-gap) * 0.55);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabList::-webkit-scrollbar {
+  display: none;
+}
+
+.tabButton {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--grid-gap);
+  border: 1px solid var(--color-border-gray);
+  border-radius: var(--radius-control);
+  background: var(--color-card-background);
+  min-height: calc(var(--button-padding-y) * 4.05);
+  padding: var(--button-padding-y) var(--button-padding-x);
+  color: var(--color-muted-text-strong);
+  font-family: var(--font-poppins);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-small);
+  text-align: left;
+  transition:
+    background var(--transition-base) var(--ease-industrial),
+    border-color var(--transition-base) var(--ease-industrial),
+    color var(--transition-base) var(--ease-industrial),
+    transform var(--transition-base) var(--ease-industrial);
+}
+
+.tabArrow {
+  flex: 0 0 auto;
+  opacity: 0.68;
+  transition:
+    opacity var(--transition-base) var(--ease-industrial),
+    transform var(--transition-base) var(--ease-industrial);
+}
+
+.tabButton:hover {
+  border-color: color-mix(in srgb, var(--color-precision-blue) 28%, var(--color-border-gray));
+  background: color-mix(in srgb, var(--color-precision-blue) 8%, var(--color-card-background));
+  color: var(--color-precision-blue);
+  transform: translateY(calc(var(--button-padding-y) * -0.08));
+}
+
+.tabButton:hover .tabArrow {
+  opacity: 1;
+  transform: translate(0.14rem, -0.14rem);
+}
+
+.tabButtonActive {
+  border-color: var(--color-industrial-orange);
+  background: var(--color-industrial-orange);
+  color: var(--color-white);
+  transform: translateY(calc(var(--button-padding-y) * -0.12));
+}
+
+.tabButtonActive:hover {
+  border-color: var(--color-industrial-orange);
+  background: var(--color-industrial-orange);
+  color: var(--color-white);
+}
+
+.tabButtonActive .tabArrow {
+  opacity: 1;
+  transform: translate(0.14rem, -0.14rem);
+}
+
+.panel {
+  display: grid;
+  gap: calc(var(--grid-gap) * 1.5);
+  align-items: stretch;
+  padding: var(--card-spacing);
+}
+
+.imageWrap {
+  position: relative;
+  min-height: calc(var(--section-padding-y) * 3.3);
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-industrial);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow) var(--ease-industrial);
+}
+
+.panel:hover .image {
+  transform: scale(1.04);
+}
+
+.checkList {
+  display: grid;
+  gap: calc(var(--grid-gap) * 0.65);
+  margin-top: var(--card-spacing);
+}
+
+.checkItem {
+  display: flex;
+  gap: calc(var(--grid-gap) * 0.55);
+  align-items: center;
+  color: var(--color-muted-text-strong);
+}
+
+.checkIcon {
+  color: var(--color-industrial-orange);
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    grid-template-columns: minmax(14rem, 0.34fr) minmax(0, 1fr);
+  }
+
+  .tabList {
+    display: grid;
+    align-content: start;
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    height: 100%;
+  }
+
+  .tabButton {
+    width: 100%;
+    min-height: 0;
+  }
+
+  .panel {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  }
+}

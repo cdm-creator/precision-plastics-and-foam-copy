@@ -1,0 +1,481 @@
+.page {
+  background: var(--color-soft-white);
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: calc(var(--section-padding-y) * 8);
+  overflow: hidden;
+  align-items: center;
+  color: var(--color-on-dark);
+  isolation: isolate;
+}
+
+.heroImage,
+.ctaImage {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--color-industrial-navy) 88%, transparent), color-mix(in srgb, var(--color-industrial-navy) 38%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-charcoal) 14%, transparent), color-mix(in srgb, var(--color-industrial-navy) 70%, transparent));
+}
+
+.vignette,
+.ctaVignette {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at center, transparent 0 36%, color-mix(in srgb, var(--color-charcoal) 58%, transparent) 100%);
+}
+
+.heroContent {
+  max-width: calc(var(--container-width) * 0.46);
+  padding-block: calc(var(--section-padding-y) * 1.35) calc(var(--section-padding-y) * 2.25);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--grid-gap) * 0.35);
+  align-items: center;
+  margin: 0 0 var(--card-spacing);
+  color: var(--color-on-dark-muted);
+}
+
+.breadcrumbLink {
+  color: var(--color-on-dark);
+  transition: color var(--transition-base) var(--ease-industrial);
+}
+
+.breadcrumbLink:hover {
+  color: var(--color-industrial-orange);
+}
+
+.heroTitle {
+  color: var(--color-white);
+}
+
+.heroLead {
+  margin-top: var(--card-spacing);
+  color: var(--color-white);
+}
+
+.heroText {
+  margin-top: calc(var(--card-spacing) * 0.75);
+  color: var(--color-on-dark-muted);
+}
+
+.navWrap {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  border-bottom: 1px solid var(--color-border-gray);
+  background: color-mix(in srgb, var(--color-card-background) 94%, transparent);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+}
+
+.anchorNav {
+  display: flex;
+  gap: calc(var(--grid-gap) * 0.25);
+  overflow-x: auto;
+  padding-block: calc(var(--card-spacing) * 0.6);
+  scrollbar-width: none;
+}
+
+.anchorNav::-webkit-scrollbar {
+  display: none;
+}
+
+.anchorLink {
+  flex: 0 0 auto;
+  border-bottom: 2px solid transparent;
+  padding: calc(var(--button-padding-y) * 0.8) var(--button-padding-x);
+  color: var(--color-muted-text-strong);
+  font-family: var(--font-poppins);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-small);
+  transition:
+    border-color var(--transition-base) var(--ease-industrial),
+    color var(--transition-base) var(--ease-industrial);
+}
+
+.anchorLink:hover,
+.anchorLinkActive {
+  border-color: var(--color-industrial-orange);
+  color: var(--color-industrial-orange);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+.whiteSection {
+  background: var(--color-card-background);
+}
+
+.gridTwo {
+  display: grid;
+  gap: calc(var(--grid-gap) * 2);
+  align-items: center;
+}
+
+.matchHeightGrid {
+  align-items: stretch;
+}
+
+.sectionCopy {
+  max-width: calc(var(--container-width) * 0.38);
+}
+
+.featureList {
+  display: grid;
+  gap: var(--grid-gap);
+  margin-top: calc(var(--card-spacing) * 1.4);
+}
+
+.featureItem {
+  display: flex;
+  gap: var(--grid-gap);
+}
+
+.iconCircle {
+  display: grid;
+  flex: 0 0 auto;
+  width: calc(var(--button-padding-x) * 2.1);
+  height: calc(var(--button-padding-x) * 2.1);
+  place-items: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-industrial-orange) 10%, var(--color-white));
+  color: var(--color-industrial-orange);
+}
+
+.imageFrame {
+  position: relative;
+  min-height: calc(var(--section-padding-y) * 5);
+  overflow: hidden;
+  border-radius: var(--radius-industrial);
+  box-shadow: var(--shadow-industrial);
+}
+
+.matchHeightImage {
+  height: 100%;
+  min-height: 0;
+}
+
+.imageFrame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-industrial-navy) 34%, transparent));
+  pointer-events: none;
+}
+
+.overviewBlocks {
+  display: grid;
+  gap: var(--grid-gap);
+  margin-top: calc(var(--card-spacing) * 1.7);
+}
+
+.miniBlock {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--card-spacing);
+  text-align: center;
+}
+
+.miniBlock::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: calc(var(--button-padding-y) * 0.28);
+  background: var(--color-industrial-orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base) var(--ease-industrial);
+}
+
+.miniBlock,
+.miniBlock h3,
+.miniBlock p,
+.miniBlock .iconCircle {
+  transition:
+    background var(--transition-base) var(--ease-industrial),
+    color var(--transition-base) var(--ease-industrial),
+    border-color var(--transition-base) var(--ease-industrial),
+    transform var(--transition-base) var(--ease-industrial);
+}
+
+.miniBlock .iconCircle {
+  width: calc(var(--button-padding-x) * 3.4);
+  height: calc(var(--button-padding-x) * 3.4);
+  background: transparent;
+}
+
+.miniBlock:hover {
+  border-color: var(--color-industrial-navy);
+  background: var(--color-industrial-navy);
+  transform: translateY(calc(var(--button-padding-y) * -0.18));
+}
+
+.miniBlock:hover::after {
+  transform: scaleX(1);
+}
+
+.miniBlock:hover h3,
+.miniBlock:hover p {
+  color: var(--color-white);
+}
+
+.miniBlock:hover .iconCircle {
+  color: var(--color-industrial-orange);
+}
+
+.cardsGrid {
+  display: grid;
+  gap: var(--grid-gap);
+  margin-top: calc(var(--card-spacing) * 1.8);
+}
+
+.sliderHeader {
+  display: grid;
+  gap: var(--grid-gap);
+  align-items: end;
+}
+
+.centerHeader {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.centerHeader > * {
+  display: grid;
+  width: 100%;
+  justify-items: center;
+  margin-inline: auto;
+}
+
+.centerHeader :global(.max-w-3xl) {
+  width: min(100%, calc(var(--container-width) * 0.72));
+  max-width: min(100%, calc(var(--container-width) * 0.72));
+  margin-inline: auto;
+  text-align: center;
+}
+
+.centerHeader :global(.h2),
+.centerHeader :global(.body) {
+  margin-inline: auto;
+}
+
+.sliderControls {
+  display: flex;
+  gap: calc(var(--grid-gap) * 0.5);
+}
+
+.centerControls {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--card-spacing);
+}
+
+.sliderButton {
+  display: inline-grid;
+  width: calc(var(--button-padding-x) * 2);
+  height: calc(var(--button-padding-x) * 2);
+  place-items: center;
+  border: 1px solid var(--color-border-gray);
+  border-radius: 999px;
+  background: var(--color-card-background);
+  color: var(--color-industrial-navy);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition:
+    background var(--transition-base) var(--ease-industrial),
+    border-color var(--transition-base) var(--ease-industrial),
+    color var(--transition-base) var(--ease-industrial),
+    transform var(--transition-base) var(--ease-industrial);
+}
+
+.sliderButton:hover {
+  border-color: color-mix(in srgb, var(--color-precision-blue) 34%, var(--color-border-gray));
+  background: color-mix(in srgb, var(--color-precision-blue) 9%, var(--color-card-background));
+  color: var(--color-precision-blue);
+  transform: translateY(calc(var(--button-padding-y) * -0.14));
+}
+
+.applicationsViewport {
+  margin-top: calc(var(--card-spacing) * 1.8);
+}
+
+.foamTypesViewport {
+  margin-top: calc(var(--card-spacing) * 2.2);
+}
+
+.applicationsClip {
+  overflow: hidden;
+  margin-inline: calc(var(--grid-gap) * -0.35);
+  padding: calc(var(--grid-gap) * 0.35);
+}
+
+.applicationsTrack {
+  display: flex;
+}
+
+.applicationSlide {
+  min-width: 0;
+  flex: 0 0 100%;
+  padding-inline: calc(var(--grid-gap) * 0.35);
+}
+
+.foamTypeSlide {
+  min-width: 0;
+  flex: 0 0 100%;
+  padding-inline: calc(var(--grid-gap) * 0.35);
+}
+
+.applicationCard,
+.foamCard {
+  overflow: hidden;
+}
+
+.applicationCard {
+  height: 100%;
+  border: 0;
+  box-shadow: none;
+}
+
+.applicationCard:hover {
+  box-shadow: none;
+}
+
+.foamCard {
+  height: 100%;
+}
+
+.foamCard:hover {
+  box-shadow: var(--shadow-card);
+  transform: none;
+}
+
+.foamCard .cardImage {
+  min-height: calc(var(--section-padding-y) * 3.15);
+}
+
+.cardImage {
+  position: relative;
+  min-height: calc(var(--section-padding-y) * 2.4);
+  overflow: hidden;
+  background: var(--color-industrial-navy);
+}
+
+.cardImage img,
+.imageFrame img {
+  transition: transform var(--transition-slow) var(--ease-industrial);
+}
+
+.applicationCard:hover .cardImage img,
+.foamCard:hover .cardImage img,
+.imageFrame:hover img {
+  transform: scale(1.04);
+}
+
+.cardContent {
+  padding: var(--card-spacing);
+}
+
+.applicationCard .cardContent {
+  padding: calc(var(--card-spacing) * 0.55) 0 0;
+}
+
+.applicationTitle,
+.foamTitle {
+  transition: color var(--transition-base) var(--ease-industrial);
+}
+
+.applicationCard:hover .applicationTitle,
+.foamCard:hover .foamTitle {
+  color: var(--color-industrial-orange);
+}
+
+@media (min-width: 768px) {
+  .overviewBlocks,
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .applicationSlide {
+    flex-basis: 50%;
+  }
+
+  .foamTypeSlide {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gridTwo {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+  }
+
+  .overviewGrid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 0.9fr);
+  }
+
+  .cardsGrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .overviewBlocks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sliderHeader {
+    grid-template-columns: 1fr auto;
+  }
+
+  .sliderControls {
+    justify-content: flex-end;
+  }
+
+  .applicationSlide {
+    flex-basis: 25%;
+  }
+
+  .foamTypeSlide {
+    flex-basis: 33.3333%;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: calc(var(--section-padding-y) * 6.8);
+  }
+
+  .heroContent {
+    padding-block: calc(var(--section-padding-y) * 1.05) calc(var(--section-padding-y) * 1.85);
+  }
+
+  .matchHeightImage {
+    min-height: calc(var(--section-padding-y) * 4);
+  }
+}

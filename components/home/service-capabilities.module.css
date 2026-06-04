@@ -1,0 +1,304 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: calc(var(--section-padding-y) * 0.9);
+  background:
+    radial-gradient(circle at 78% 16%, rgba(37, 99, 235, 0.18), transparent 24rem),
+    radial-gradient(circle at 18% 85%, rgba(249, 115, 22, 0.11), transparent 18rem),
+    var(--color-industrial-navy);
+  color: var(--color-on-dark);
+  isolation: isolate;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.78)),
+    url("/images/core-capabilities-bg.webp");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.38;
+  filter: blur(1px) saturate(0.9);
+  transform: scale(1.02);
+}
+
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.22), rgba(2, 6, 23, 0.82)),
+    radial-gradient(circle at 30% 42%, transparent 0 1px, rgba(255, 255, 255, 0.035) 1px 1.5px, transparent 1.5px 100%);
+  background-size: auto, 6px 6px;
+  pointer-events: none;
+}
+
+.inner {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+.copy {
+  max-width: 27rem;
+}
+
+.title {
+  margin-top: 0.95rem;
+  color: var(--color-white);
+}
+
+.title strong {
+  color: var(--color-industrial-orange);
+  font-weight: var(--weight-semibold);
+}
+
+.description {
+  margin-top: 2.25rem;
+  max-width: 24rem;
+  color: var(--color-on-dark-muted);
+}
+
+.accentLine {
+  display: block;
+  width: 3.4rem;
+  height: 2px;
+  margin-top: 1.8rem;
+  background: var(--color-industrial-orange);
+}
+
+.cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  position: relative;
+  min-height: 21.5rem;
+  overflow: hidden;
+  border: 1px solid var(--color-white-glass-border);
+  border-radius: var(--radius-industrial);
+  isolation: isolate;
+  transition:
+    border-color var(--transition-slow) var(--ease-industrial),
+    box-shadow var(--transition-slow) var(--ease-industrial),
+    transform var(--transition-slow) var(--ease-industrial);
+}
+
+.card:hover {
+  border-color: rgba(249, 115, 22, 0.42);
+  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.38), 0 0 0 1px rgba(249, 115, 22, 0.14);
+  transform: translateY(-0.3rem);
+}
+
+.cardImageWrap {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.cardImage {
+  object-fit: cover;
+  transition:
+    transform 900ms var(--ease-industrial),
+    filter 900ms var(--ease-industrial);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.045);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transition: opacity var(--transition-slow) var(--ease-industrial);
+}
+
+.darkCard {
+  background: var(--color-dark-glass);
+  backdrop-filter: blur(14px);
+}
+
+.darkCard .cardImageWrap {
+  opacity: 0.74;
+}
+
+.darkCard .cardImage {
+  object-position: center right;
+}
+
+.darkCard .cardOverlay {
+  background:
+    linear-gradient(90deg, rgba(3, 15, 39, 0.96) 0%, rgba(3, 15, 39, 0.82) 47%, rgba(3, 15, 39, 0.42) 100%),
+    linear-gradient(180deg, rgba(3, 15, 39, 0.12), rgba(3, 15, 39, 0.52));
+}
+
+.lightCard {
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--color-industrial-navy);
+}
+
+.lightCard .cardImageWrap {
+  opacity: 0.96;
+}
+
+.lightCard .cardImage {
+  object-position: center right;
+}
+
+.lightCard .cardOverlay {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 43%, rgba(255, 255, 255, 0.38) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.84));
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 21.5rem;
+  max-width: 32rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.1rem;
+}
+
+.iconWrap {
+  display: grid;
+  width: 3.4rem;
+  height: 3.4rem;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--color-industrial-orange);
+  transition:
+    box-shadow var(--transition-slow) var(--ease-industrial),
+    transform var(--transition-slow) var(--ease-industrial);
+}
+
+.darkCard .iconWrap {
+  background: rgba(249, 115, 22, 0.11);
+}
+
+.lightCard .iconWrap {
+  background: var(--color-white);
+  box-shadow: var(--shadow-card);
+}
+
+.card:hover .iconWrap {
+  box-shadow: 0 0 2.25rem rgba(249, 115, 22, 0.24);
+  transform: translateY(-0.1rem);
+}
+
+.cardTitle {
+  margin-top: 1.35rem;
+  max-width: 17rem;
+  color: inherit;
+}
+
+.cardText {
+  margin-top: 0.95rem;
+  color: inherit;
+  opacity: 0.74;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+}
+
+.tag {
+  border-radius: var(--radius-control);
+  background: rgba(148, 163, 184, 0.16);
+  padding: 0.38rem 0.72rem;
+  font-family: var(--font-poppins);
+  font-size: calc(var(--text-small) - 0.12rem);
+  font-weight: var(--weight-medium);
+  line-height: 1.35;
+  color: inherit;
+}
+
+.lightCard .tag {
+  background: rgba(15, 23, 42, 0.07);
+}
+
+.link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.45rem;
+  font-family: var(--font-poppins);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  color: var(--color-industrial-orange);
+  transition: color var(--transition-base) var(--ease-industrial);
+}
+
+.link svg {
+  transition: transform var(--transition-base) var(--ease-industrial);
+}
+
+.link:hover {
+  color: var(--color-white);
+}
+
+.lightCard .link:hover {
+  color: var(--color-orange-hover);
+}
+
+.link:hover svg {
+  transform: translateX(0.28rem);
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 0.58fr 1.42fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1023px) {
+  .copy {
+    max-width: 45rem;
+  }
+
+  .description {
+    max-width: 36rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: 4rem;
+  }
+
+  .card,
+  .cardContent {
+    min-height: 26rem;
+  }
+
+  .cardContent {
+    padding: 1.55rem;
+  }
+
+  .darkCard .cardOverlay {
+    background:
+      linear-gradient(180deg, rgba(3, 15, 39, 0.98) 0%, rgba(3, 15, 39, 0.86) 48%, rgba(3, 15, 39, 0.58) 100%);
+  }
+
+  .lightCard .cardOverlay {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.9) 48%, rgba(255, 255, 255, 0.68) 100%);
+  }
+}

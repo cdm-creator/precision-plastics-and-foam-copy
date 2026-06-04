@@ -1,0 +1,256 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding-block: calc(var(--section-padding-y) * 1.05);
+  background:
+    radial-gradient(circle at 82% 12%, rgba(37, 99, 235, 0.055), transparent 28rem),
+    var(--color-card-background);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.18;
+  mask-image: linear-gradient(180deg, transparent, black 22%, black 70%, transparent);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+  text-align: left;
+}
+
+.copy {
+  max-width: 50rem;
+}
+
+.title {
+  margin-top: 0.85rem;
+}
+
+.intro {
+  max-width: 47rem;
+  margin-top: 1rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.arrowButton {
+  display: inline-grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-precision-blue) 28%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-precision-blue) 12%, var(--color-card-background));
+  color: var(--color-precision-blue);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition:
+    background var(--transition-base) var(--ease-industrial),
+    border-color var(--transition-base) var(--ease-industrial),
+    color var(--transition-base) var(--ease-industrial),
+    transform var(--transition-base) var(--ease-industrial);
+}
+
+.arrowButton:hover {
+  border-color: rgba(249, 115, 22, 0.5);
+  background: color-mix(in srgb, var(--color-industrial-orange) 10%, var(--color-card-background));
+  color: var(--color-industrial-orange);
+  transform: translateY(-0.12rem);
+}
+
+.viewport {
+  margin-top: 2.75rem;
+  margin-inline: -0.75rem;
+  overflow: hidden;
+  padding: 0.75rem;
+  outline: none;
+}
+
+.viewport:focus-visible {
+  outline: 2px solid var(--color-precision-blue);
+  outline-offset: 0.5rem;
+}
+
+.track {
+  display: flex;
+}
+
+.slide {
+  min-width: 0;
+  flex: 0 0 100%;
+  padding-inline: 0.75rem;
+}
+
+.card {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border-gray);
+  border-radius: calc(var(--radius-industrial) * 1.5);
+  background: var(--color-card-background);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color var(--transition-slow) var(--ease-industrial),
+    box-shadow var(--transition-slow) var(--ease-industrial),
+  transform var(--transition-slow) var(--ease-industrial);
+}
+
+.cardLink {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  color: inherit;
+}
+
+.card:hover {
+  border-color: rgba(249, 115, 22, 0.36);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-0.35rem);
+}
+
+.imageWrap {
+  position: relative;
+  min-height: 15rem;
+  overflow: hidden;
+  background: var(--color-industrial-navy);
+}
+
+.image {
+  object-fit: cover;
+  transition:
+    transform 900ms var(--ease-industrial),
+    filter 900ms var(--ease-industrial);
+}
+
+.card:hover .image {
+  transform: scale(1.055);
+  filter: saturate(1.06) contrast(1.04);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 45%, rgba(15, 23, 42, 0.58)),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.16), transparent 52%);
+  opacity: 0;
+  transition: opacity var(--transition-slow) var(--ease-industrial);
+}
+
+.card:hover .imageOverlay {
+  opacity: 1;
+}
+
+.content {
+  display: grid;
+  flex: 1;
+  gap: 1rem;
+  padding: 1.65rem;
+}
+
+.number {
+  color: var(--color-industrial-orange);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.04em;
+}
+
+.titleRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cardTitle {
+  color: var(--color-industrial-navy);
+  transition: color var(--transition-base) var(--ease-industrial);
+}
+
+.card:hover .cardTitle {
+  color: var(--color-industrial-orange);
+}
+
+.arrow {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(249, 115, 22, 0.08);
+  color: var(--color-industrial-orange);
+  transition:
+    background var(--transition-base) var(--ease-industrial),
+    color var(--transition-base) var(--ease-industrial),
+    transform var(--transition-base) var(--ease-industrial);
+}
+
+.card:hover .arrow {
+  background: var(--color-industrial-orange);
+  color: var(--color-white);
+  transform: translateX(0.22rem);
+}
+
+.description {
+  margin: 0;
+  color: var(--color-muted-text-strong);
+}
+
+@media (min-width: 768px) {
+  .slide {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .slide {
+    flex-basis: 33.3333%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .slide {
+    flex-basis: 33.3333%;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: 4rem;
+  }
+
+  .header {
+    text-align: left;
+  }
+
+  .controls {
+    justify-content: flex-start;
+  }
+
+  .viewport {
+    margin-top: 2rem;
+  }
+
+  .imageWrap {
+    min-height: 18rem;
+  }
+}
